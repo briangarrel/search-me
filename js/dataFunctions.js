@@ -8,7 +8,7 @@ export const getSearchTerm = () => {
 
 export const retrieveSearchResults = async (searchTerm) => {
     const wikiSearchString = getWikiSearchString(searchTerm);
-    const wikiSearchResults = await requestData("wikiSearchString")
+    const wikiSearchResults = await requestData(wikiSearchString)
     let resultArray = [];
     if(wikiSearchResults.hasOwnProperty("query")){
         resultArray = processWikiResults(wikiSearchResults.query.pages)
