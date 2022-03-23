@@ -289,7 +289,7 @@ img {
       -ms-flex-pack: start;
           justify-content: flex-start;
   width: 100%;
-  padding: 025rem 0;
+  padding: 0.25rem 0;
 }
 
 @media only screen and (min-width: 768px) {
