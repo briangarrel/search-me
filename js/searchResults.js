@@ -1,8 +1,17 @@
+export const deleteSearchResults = () => {
+    const parentElement = document.getElementById("searchResults")
+    let child = parentElement.lastElementChild
+    while (child) {
+        parentElement.removeChild(child)
+        child = parentElement.lastElementChild
+    }
+}
+
 export const buildSearchResults = (resultArray) => {
-    resultArray.forEach(result => {
+    resultArray.forEach((result) => {
         const resultItem = createResultItem(result)
         const resultContents = document.createElement("div")
-        resultContents.classList.add("resultsContent")
+        resultContents.classList.add("resultContents")
         if (result.img) {
             const resultImage = createResultImage(result)
             resultContents.append(resultImage)
@@ -71,14 +80,5 @@ export const setStatsLine = (numberOfResults) => {
         statLine.textContent = `Displaying ${numberOfResults} results.`
     } else {
         statLine.textContent = "Sorry, no results."
-    }
-}
-
-export const deleteSearchResults = () => {
-    const parentElement = document.getElementById("searchResults")
-    let child = parentElement.lastElementChild
-    while (child) {
-        parentElement.removeChild(child)
-        child = parentElement.lastElementChild
     }
 }

@@ -19,7 +19,7 @@ export const clearSearchText = (event) => {
     document.getElementById("search").value = "";
     const clear = document.getElementById("clear");
     clear.classList.add("none");
-    clear.classList.add("flex");
+    clear.classList.remove("flex");
     setSearchFocus();
 }
 

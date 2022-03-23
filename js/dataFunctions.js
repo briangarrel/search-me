@@ -2,7 +2,6 @@ export const getSearchTerm = () => {
     const rawSearchTerm = document.getElementById("search").value.trim();
     const regex = /[ ]{2,}/gi;
     const searchTerm = rawSearchTerm.replaceAll(regex, " ");
-
     return searchTerm
 }
 
@@ -39,7 +38,7 @@ const getMaxChars = () => {
 const requestData = async (searchString) => {
     try {
         const response = await fetch(searchString);
-        const data = response.json();
+        const data = await response.json();
         return data;
     } catch (err) {
         console.error(err)
@@ -48,7 +47,7 @@ const requestData = async (searchString) => {
 
 const processWikiResults = (results) => {
     const resultArray = [];
-    Object.keys(results).forEach(key => {
+    Object.keys(results).forEach((key) => {
         const id = key;
         const title = results[key].title;
         const text = results[key].extract;
